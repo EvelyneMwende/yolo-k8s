@@ -1,0 +1,28 @@
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: client-deployment
+  labels:
+    app: client-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-pod
+
+  template:
+    metadata:
+      name: client-pod
+      labels:
+        app: client-pod
+
+    spec:
+      containers:
+        - name: yolo-client
+          image: evelynemwende/yolo-client-k8s:v2
+          ports:
+            - containerPort: 3000
