@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-pod
+  
+  template:
+    metadata:
+      name: backend-pod
+      labels:
+        app: backend-pod
+    spec:
+        containers:
+          - name: yolo-backend-container
+            image: evelynemwende/yolo-backend-k8s
+            ports:
+              - containerPort: 5000
