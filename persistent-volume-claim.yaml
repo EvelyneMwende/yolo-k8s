@@ -1,0 +1,12 @@
+apiVersion: apps/v1
+kind: PersistentVolumeClaim
+metadata:
+  name: yolo-pvc
+spec: 
+  storageClassName: manual
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+    storage: 10Gi
