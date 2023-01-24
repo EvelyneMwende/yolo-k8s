@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata: 
+  name: mongod
+spec:
+  serviceName: mongo-service
+  replicas: 1
+  selector:
+    matchLabels:
+      role: mongo
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+        replicaset: MainRepSet
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: mongodb-container
+          image: mongo
+          command:
+            - "mongod"
+            - "--bind_ip"
+            - "0.0.0.0"
+            - "--replSet"
+            - "MainRepSet"
+          volumeMounts:
+            - name: mongo-volume
+              mountPath: "/data/db"
+          env: 
+            - name: MONGO_INITDB_DATABASE
+              value: database
+          ports:
+            - containerPort: 27017
+      volumes:
+      - name: mongo-volume
+        persistentVolumeClaim: 
+          claimName: mongodb-store

@@ -1,7 +1,7 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: yolo-pvc
+  name: mongodb-store
 spec: 
   storageClassName: manual
   volumeMode: Filesystem
@@ -9,4 +9,15 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-    storage: 10Gi
+      storage: 1Gi
+
+# volumeClaimTemplates:
+# - metadata:
+#     name: mongodb-store
+#   spec: 
+#     accessModes:
+#       - ReadWriteOnce
+#   storageClassName: manual
+#   resources:
+#     requests:
+#       storage: 1Gi
