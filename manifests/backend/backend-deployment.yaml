@@ -18,6 +18,6 @@ spec:
     spec:
         containers:
           - name: yolo-backend-container
-            image: evelynemwende/yolo-backend-k8s
+            image: evelynemwende/backen-yolo:v1
             ports:
               - containerPort: 5000
