@@ -4,11 +4,15 @@
 # Choice of the Kubernetes Objects used for deployment (Use of - or the lack of use - of StatefulSets for storage solutions).
 Pod- Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.Pods represent the processes running on a cluster
 
-Persistent volume-  provide persistent storage for your containerized applications: even after restarting, the application pod will still have access to the previously stored data.
+Persistent volume-  provide persistent storage for containerized applications: even after restarting, the application pod will still have access to the previously stored data.
 
-Persistent Volume Claim -A PersistentVolumeClaim (PVC) is a request for storage by a use
+Persistent Volume Claim -A PersistentVolumeClaim (PVC) is a request for storage by a user
 # Method used to expose your pods to internet traffic.
 Service - services connect a set of pods to an abstracted service name and IP address.They provide discovery and routing between pods. For example, services connect an application front-end to its backend, each of which running in separate deployments in a cluster.
+
+# Use-of or there-lack-of of persistent storage.
+Persistent volumes let you store data independently of the pods in your Kubernetes cluster. Persistent volumes whenever you have data that needs to outlive individual pods
+
 
 # Requirements
 Make sure that you have the following installed:
